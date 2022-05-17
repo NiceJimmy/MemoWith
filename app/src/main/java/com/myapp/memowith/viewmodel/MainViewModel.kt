@@ -1,4 +1,4 @@
-package com.example.memowith.ui.main
+package com.myapp.memowith.viewmodel
 
 import androidx.lifecycle.ViewModel
 

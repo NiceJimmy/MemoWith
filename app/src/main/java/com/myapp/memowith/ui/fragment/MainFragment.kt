@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.memowith.R
+import com.myapp.memowith.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
 

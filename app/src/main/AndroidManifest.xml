@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoWith">
         <activity
-            android:name=".MainActivity"
+            android:name="com.myapp.memowith.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
