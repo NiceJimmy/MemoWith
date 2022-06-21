@@ -3,6 +3,7 @@ package com.myapp.memowith.ui.activity
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -28,6 +29,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseNavi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.d("${javaClass.simpleName}: onCreate")
         viewModelFactory = BaseApplication.shared().getDataComponent().viewModelFactory
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         binding.lifecycleOwner = this
@@ -58,8 +60,5 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseNavi
         Timber.d("${javaClass.simpleName}: onDestroy")
     }
 
-//    override fun addFragment(baseFragment: BaseFragment<*>, tag: String) {
-//        addFragmentToActivity(baseFragment, R.id.framelayout_fragment, tag)
-//    }
 
 }

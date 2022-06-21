@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.memowith.R
 import com.myapp.memowith.viewmodel.MainViewModel
+import timber.log.Timber
+
 
 class MainFragment : Fragment() {
 
@@ -19,15 +21,9 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
