@@ -1,6 +1,9 @@
 package com.myapp.memowith.ui.activity
 
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -60,5 +63,17 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseNavi
         Timber.d("${javaClass.simpleName}: onDestroy")
     }
 
+    override fun startActivity(action: Context.() -> Intent, vararg params: Pair<String, Any?>) {
+        val intent = action(this)
+        startActivity(intent)
+    }
+
+    override fun startActivity(activity: Class<out Activity>?, vararg params: Pair<String, Any?>) {
+        startActivity({ Intent(this, activity) }, *params)
+    }
+
+    override fun startActivityForResult(action: Context.() -> Intent, requestCode: Int, vararg params: Pair<String, Any?>) {
+        TODO("Not yet implemented")
+    }
 
 }

@@ -14,51 +14,19 @@ import com.myapp.memowith.ui.fragment.BaseFragment
 import com.myapp.memowith.viewmodel.MainViewModel
 import timber.log.Timber
 
-class MainActivity : BaseActivity<MainActivityBinding>() {
+class MainActivity : BaseActivity<MainActivityBinding>()  {
 
     override fun getLayoutId(): Int = R.layout.main_activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        Timber.d("start_main")
+        binding.mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java).apply {
+            navigator = this@MainActivity
+        }
 
     }
 
-    override fun startActivity(action: Context.() -> Intent, vararg params: Pair<String, Any?>) {
-        TODO("Not yet implemented")
-    }
-
-    override fun startActivity(activity: Class<out Activity>?, vararg params: Pair<String, Any?>) {
-        TODO("Not yet implemented")
-    }
-
-    override fun startActivityForResult(
-        action: Context.() -> Intent,
-        requestCode: Int,
-        vararg params: Pair<String, Any?>
-    ) {
-        TODO("Not yet implemented")
-    }
-
-    override fun startActivityForResult(
-        activity: Class<out Activity>?,
-        requestCode: Int,
-        vararg params: Pair<String, Any?>
-    ) {
-        TODO("Not yet implemented")
-    }
-
-    override fun addFragment(baseFragment: BaseFragment<*>, tag: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Timber.d("aaaaaaaaaaaaa")
-        Timber.d("asdfasdf")
-    }
 
 
 }

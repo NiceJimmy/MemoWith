@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoWith">
-
         <activity
             android:name="com.myapp.memowith.ui.activity.MainActivity"
             android:exported="true">
