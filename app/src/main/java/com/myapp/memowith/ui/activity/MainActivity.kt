@@ -23,6 +23,8 @@ class MainActivity : BaseActivity<MainActivityBinding>()  {
 
         binding.mainViewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java).apply {
             navigator = this@MainActivity
+
+            showMyList()
         }
 
     }

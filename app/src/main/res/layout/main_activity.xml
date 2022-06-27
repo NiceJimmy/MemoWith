@@ -51,7 +51,7 @@
                 android:text="MyPlan"
                 android:textSize="14dp"
                 android:gravity="center"
-                app:onSafeClick="@{() -> mainViewModel.tabHomeMenu()}"
+                app:onSafeClick="@{() -> mainViewModel.tabMyList()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageview_main_quick_menu"
                 app:layout_constraintTop_toTopOf="parent"

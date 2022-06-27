@@ -5,13 +5,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.memowith.R
 import com.myapp.memowith.BaseApplication
@@ -74,6 +73,55 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseNavi
 
     override fun startActivityForResult(action: Context.() -> Intent, requestCode: Int, vararg params: Pair<String, Any?>) {
         TODO("Not yet implemented")
+    }
+
+    override fun findFragmentByTag(tag: String) = supportFragmentManager.findFragmentByTag(tag)
+
+    override fun addFragment(baseFragment: BaseFragment<*>, tag: String) {
+        supportFragmentManager.transact {
+            Timber.d("check_baseFragment : ${baseFragment}")
+            add(R.id.framelayout_fragment, baseFragment, tag)
+        }
+    }
+
+    override fun removeFragment(tag: String) {
+        supportFragmentManager.apply {
+            findFragmentByTag(tag)?.let {
+                transact {
+                    remove(it)
+                }
+            }
+        }
+    }
+
+    override fun showFragment(tag: String, hideTag: String?) {
+        supportFragmentManager.apply {
+            hideTag?.let {
+                hideFragment(hideTag)
+            }
+            findFragmentByTag(tag)?.let {
+                transact {
+                    show(it)
+                }
+            }
+        }
+    }
+
+    override fun hideFragment(tag: String) {
+        supportFragmentManager.apply {
+            findFragmentByTag(tag)?.let {
+                transact {
+                    Timber.d("check_tag_isHide?? ${it}")
+                    hide(it)
+                }
+            }
+        }
+    }
+
+    private inline fun FragmentManager.transact(action: FragmentTransaction.() -> Unit) {
+        beginTransaction().apply {
+            action()
+        }.commit()
     }
 
 }
