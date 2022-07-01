@@ -3,6 +3,7 @@ package common.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.myapp.memowith.viewmodel.MainViewModel
+import com.myapp.memowith.viewmodel.MyAlarmsViewModel
 import com.myapp.memowith.viewmodel.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -17,4 +18,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     internal abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MyAlarmsViewModel::class)
+    internal abstract fun bindMyAlarmsViewModel(myAlarmsViewModel: MyAlarmsViewModel): ViewModel
+
 }

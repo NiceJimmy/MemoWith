@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_cell"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+
+    <ImageView
+        android:id="@+id/list_main_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/list_main_text"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="13dp"
+        android:gravity="start"
+        android:textSize="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="고혈압약 10 dose 복용 요망"
+        app:layout_constraintLeft_toRightOf="@id/list_main_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/list_time_text"
+        />
+
+    <TextView
+        android:id="@+id/list_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textSize="16dp"
+        android:gravity="end"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:text="13:00 am"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
